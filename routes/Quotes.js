@@ -30,4 +30,11 @@ router.delete('/delete/:id', async (req, res) => {
     res.json(result);
 });
 
+// Update quote
+router.patch('/update/:id', async (req, res) => {
+    const q = await Quote.updateOne({ _id: req.params.id }, {$set: req.body});
+
+    res.json(q);
+});
+
 module.exports = router;
