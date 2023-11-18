@@ -3,8 +3,10 @@ const router = express.Router();
 const Quote = require('../models/Quotes');
 
 // Get all Routes
-router.get('/', (req, res) => {
-    res.send("Get all routes");
+router.get('/', async (req, res) => {
+    const quotes = await Quote.find();
+
+    res.json(quotes);
 });
 
 // Create new quote
