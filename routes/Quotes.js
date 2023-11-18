@@ -16,4 +16,11 @@ router.post('/new', async (req, res) => {
     res.json(savedQuote);
 });
 
+// Get specific quote
+router.get('/get/:id', async (req, res) => {
+    const q = await Quote.findById({ _id: req.params.id });
+
+    res.json(q);
+})
+
 module.exports = router;
